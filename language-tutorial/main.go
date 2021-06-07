@@ -35,15 +35,39 @@ func main() {
 	//fmt.Println(scoreOne, scoreTwo, scoreThree)
 
 	// Printf (formatted strings)
-	age := 26
-	name := "sung"
-	fmt.Printf("my age is %v and my name is %v \n", age, name)
-	fmt.Printf("my age is %q and my name is %q \n", age, name)
-	fmt.Printf("age is of type %T \n", age)
-	fmt.Printf("you scored %0.1f points! \n", 225.55)
+	//age := 26
+	//name := "sung"
+	//fmt.Printf("my age is %v and my name is %v \n", age, name)
+	//fmt.Printf("my age is %q and my name is %q \n", age, name)
+	//fmt.Printf("age is of type %T \n", age)
+	//fmt.Printf("you scored %0.1f points! \n", 225.55)
+	//
+	////Springf (save formatted strings)
+	//var str = fmt.Sprintf("my age is %v and my name is %v \n", age, name)
+	//fmt.Println("the saved string is:", str)
 
-	//Springf (save formatted strings)
-	var str = fmt.Sprintf("my age is %v and my name is %v \n", age, name)
-	fmt.Println("the saved string is:", str)
+	// Arrays & Slices
+	//var ages [3]int = [3]int{20, 25, 30}
+	var ages = [3]int{20, 25, 30}
+	names := [4]string{"yoshi", "mario", "peach", "bowser"}
+	names[1] = "luigi"
+
+	fmt.Println(ages, len(ages))
+	fmt.Println(names, len(names))
+
+	// slices ( use arrays under the hood )
+	var scores = []int{100, 50, 60}
+	scores[2] = 25
+	scores = append(scores, 85)
+	fmt.Println(scores, len(scores))
+
+	// slice ranges
+	rangeOne := names[1:3]
+	rangeTwo := names[2:]
+	rangeThree := names[:3]
+	fmt.Println(rangeOne, rangeTwo, rangeThree)
+
+	rangeOne = append(rangeOne, "koopa")
+	fmt.Println(rangeOne)
 
 }

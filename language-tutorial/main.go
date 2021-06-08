@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sort"
+	"strings"
+)
 
 func main() {
 	//// strings
@@ -48,26 +52,51 @@ func main() {
 
 	// Arrays & Slices
 	//var ages [3]int = [3]int{20, 25, 30}
-	var ages = [3]int{20, 25, 30}
-	names := [4]string{"yoshi", "mario", "peach", "bowser"}
-	names[1] = "luigi"
+	//var ages = [3]int{20, 25, 30}
+	//names := [4]string{"yoshi", "mario", "peach", "bowser"}
+	//names[1] = "luigi"
+	//
+	//fmt.Println(ages, len(ages))
+	//fmt.Println(names, len(names))
+	//
+	//// slices ( use arrays under the hood )
+	//var scores = []int{100, 50, 60}
+	//scores[2] = 25
+	//scores = append(scores, 85)
+	//fmt.Println(scores, len(scores))
+	//
+	//// slice ranges
+	//rangeOne := names[1:3]
+	//rangeTwo := names[2:]
+	//rangeThree := names[:3]
+	//fmt.Println(rangeOne, rangeTwo, rangeThree)
+	//
+	//rangeOne = append(rangeOne, "koopa")
+	//fmt.Println(rangeOne)
 
-	fmt.Println(ages, len(ages))
-	fmt.Println(names, len(names))
+	// The Standard Library
 
-	// slices ( use arrays under the hood )
-	var scores = []int{100, 50, 60}
-	scores[2] = 25
-	scores = append(scores, 85)
-	fmt.Println(scores, len(scores))
+	greeting := "hello there friends"
+	fmt.Println(strings.Contains(greeting, "hello"))
+	fmt.Println(strings.ReplaceAll(greeting, "hello", "hi"))
+	fmt.Println(strings.ToUpper(greeting))
+	fmt.Println(strings.Index(greeting, "ll"))
+	fmt.Println(strings.Split(greeting, " "))
 
-	// slice ranges
-	rangeOne := names[1:3]
-	rangeTwo := names[2:]
-	rangeThree := names[:3]
-	fmt.Println(rangeOne, rangeTwo, rangeThree)
+	// the original value is unchanged
+	fmt.Println("original String value = ", greeting)
 
-	rangeOne = append(rangeOne, "koopa")
-	fmt.Println(rangeOne)
+	ages := []int{45, 20, 35, 30, 70, 60, 50, 25}
+	sort.Ints(ages)
+	fmt.Println(ages)
 
+	index := sort.SearchInts(ages, 30)
+	fmt.Println(index)
+
+	names := []string{"yoshi", "mario", "peach", "bowser"}
+
+	sort.Strings(names)
+	fmt.Println(names)
+
+	fmt.Println(sort.SearchStrings(names, ""))
 }

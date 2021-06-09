@@ -1,10 +1,6 @@
 package main
 
-import (
-	"fmt"
-	"sort"
-	"strings"
-)
+import "fmt"
 
 func main() {
 	//// strings
@@ -75,28 +71,44 @@ func main() {
 	//fmt.Println(rangeOne)
 
 	// The Standard Library
+	//greeting := "hello there friends"
+	//fmt.Println(strings.Contains(greeting, "hello"))
+	//fmt.Println(strings.ReplaceAll(greeting, "hello", "hi"))
+	//fmt.Println(strings.ToUpper(greeting))
+	//fmt.Println(strings.Index(greeting, "ll"))
+	//fmt.Println(strings.Split(greeting, " "))
+	//
+	//// the original value is unchanged
+	//fmt.Println("original String value = ", greeting)
+	//
+	//ages := []int{45, 20, 35, 30, 70, 60, 50, 25}
+	//sort.Ints(ages)
+	//fmt.Println(ages)
+	//
+	//index := sort.SearchInts(ages, 30)
+	//fmt.Println(index)
+	//
+	//names := []string{"yoshi", "mario", "peach", "bowser"}
+	//
+	//sort.Strings(names)
+	//fmt.Println(names)
+	//
+	//fmt.Println(sort.SearchStrings(names, ""))
 
-	greeting := "hello there friends"
-	fmt.Println(strings.Contains(greeting, "hello"))
-	fmt.Println(strings.ReplaceAll(greeting, "hello", "hi"))
-	fmt.Println(strings.ToUpper(greeting))
-	fmt.Println(strings.Index(greeting, "ll"))
-	fmt.Println(strings.Split(greeting, " "))
-
-	// the original value is unchanged
-	fmt.Println("original String value = ", greeting)
-
-	ages := []int{45, 20, 35, 30, 70, 60, 50, 25}
-	sort.Ints(ages)
-	fmt.Println(ages)
-
-	index := sort.SearchInts(ages, 30)
-	fmt.Println(index)
+	// Loops
+	//x := 0
+	//for x < 5 {
+	//	fmt.Println("value of x is : ", x)
+	//	x++
+	//}
+	//
+	//for i := 0; i < 5; i++ {
+	//	fmt.Println("value of i is :", i)
+	//}
 
 	names := []string{"yoshi", "mario", "peach", "bowser"}
 
-	sort.Strings(names)
-	fmt.Println(names)
-
-	fmt.Println(sort.SearchStrings(names, ""))
+	for _, v := range names {
+		fmt.Println(v)
+	}
 }

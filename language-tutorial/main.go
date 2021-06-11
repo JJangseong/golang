@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
 func main() {
 	//// strings
@@ -113,35 +116,63 @@ func main() {
 	//}
 
 	// Booleans & Conditionals
+	//
+	//age := 45
+	//
+	//fmt.Println(age <= 50)
+	//fmt.Println(age >= 50)
+	//fmt.Println(age == 45)
+	//fmt.Println(age != 50)
+	//
+	//if age < 30 {
+	//	fmt.Println("age is less than 30")
+	//} else if age < 40 {
+	//	fmt.Println("age is less than 40")
+	//} else {
+	//	fmt.Println("age is not less than 45")
+	//}
+	//names := []string{"yoshi", "mario", "peach", "bowser"}
+	//
+	//for index, value := range names {
+	//	if index == 1 {
+	//		fmt.Println("continuing at pos ", index)
+	//		continue
+	//	}
+	//
+	//	if index > 2 {
+	//		fmt.Println("breaking at pos ", index)
+	//		break
+	//	}
+	//
+	//	fmt.Printf("the value at pos %v is %v \n", index, value)
+	//}
 
-	age := 45
+	// Using Functions
+	//sayGreeting("mario")
+	//sayBey("luigi")
+	cycleNames([]string{"yoshi", "mario", "peach", "bowser"}, sayGreeting)
+	cycleNames([]string{"yoshi", "mario", "peach", "bowser"}, sayBey)
 
-	fmt.Println(age <= 50)
-	fmt.Println(age >= 50)
-	fmt.Println(age == 45)
-	fmt.Println(age != 50)
+	a1 := circleArea(10.5)
+	a2 := circleArea(15)
+	fmt.Println(a1, a2)
+	fmt.Printf("circle 1 is %0.3f and circle 2 is %0.3f", a1,a2)
+}
 
-	if age < 30 {
-		fmt.Println("age is less than 30")
-	} else if age < 40 {
-		fmt.Println("age is less than 40")
-	} else {
-		fmt.Println("age is not less than 45")
+func sayGreeting(n string) {
+	fmt.Printf("Good morning %v \n", n)
+}
+
+func sayBey(n string) {
+	fmt.Printf("Goodbye %v \n", n)
+}
+
+func cycleNames(n []string, f func(string)) {
+	for _, value := range n {
+		f(value)
 	}
-	names := []string{"yoshi", "mario", "peach", "bowser"}
+}
 
-	for index, value := range names {
-		if index == 1 {
-			fmt.Println("continuing at pos ", index)
-			continue
-		}
-
-		if index > 2 {
-			fmt.Println("breaking at pos ", index)
-			break
-		}
-
-		fmt.Printf("the value at pos %v is %v \n", index, value)
-	}
-
+func circleArea(r float64) float64 {
+	return math.Pi * r * r
 }

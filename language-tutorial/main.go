@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"math"
+	"strings"
 )
 
 func main() {
@@ -150,13 +151,33 @@ func main() {
 	// Using Functions
 	//sayGreeting("mario")
 	//sayBey("luigi")
-	cycleNames([]string{"yoshi", "mario", "peach", "bowser"}, sayGreeting)
-	cycleNames([]string{"yoshi", "mario", "peach", "bowser"}, sayBey)
+	//cycleNames([]string{"yoshi", "mario", "peach", "bowser"}, sayGreeting)
+	//cycleNames([]string{"yoshi", "mario", "peach", "bowser"}, sayBey)
+	//
+	//a1 := circleArea(10.5)
+	//a2 := circleArea(15)
+	//fmt.Println(a1, a2)
+	//fmt.Printf("circle 1 is %0.3f and circle 2 is %0.3f", a1,a2)
 
-	a1 := circleArea(10.5)
-	a2 := circleArea(15)
-	fmt.Println(a1, a2)
-	fmt.Printf("circle 1 is %0.3f and circle 2 is %0.3f", a1,a2)
+	// Multiple Return Values
+	fn, sn := getInitials("tifa lockhart")
+
+	fmt.Println(fn, sn)
+}
+
+func getInitials(n string) (string, string){
+	s := strings.ToUpper(n)
+	names := strings.Split(s, " ")
+
+	var initials []string
+	for _, v := range names {
+		initials = append(initials, v[:1])
+	}
+
+	if len(initials) > 1 {
+		return initials[0], initials[1]
+	}
+	return initials[0], "_"
 }
 
 func sayGreeting(n string) {

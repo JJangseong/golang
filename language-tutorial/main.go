@@ -160,9 +160,17 @@ func main() {
 	//fmt.Printf("circle 1 is %0.3f and circle 2 is %0.3f", a1,a2)
 
 	// Multiple Return Values
-	fn, sn := getInitials("tifa lockhart")
+	//fn, sn := getInitials("tifa lockhart")
+	//
+	//fmt.Println(fn, sn)
 
-	fmt.Println(fn, sn)
+	// Package Scope
+	sayHello("mario")
+
+	for _, v := range points {
+		fmt.Println(v)
+	}
+
 }
 
 func getInitials(n string) (string, string){

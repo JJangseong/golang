@@ -202,7 +202,26 @@ func main() {
 	//phonebook[1] = "world"
 	//fmt.Println(phonebook)
 
+	// Pass By Value
+	name := "tifa"
 
+	name = updateName(name)
+	fmt.Println(name)
+
+	menu := map[string]float64 {
+		"pie": 5.6,
+	}
+	updateMenu(menu)
+	fmt.Println(menu)
+}
+
+func updateName(x string) string {
+	x = "wedge"
+	return x
+}
+
+func updateMenu(y map[string]float64) {
+	y["pie"] = 1.1
 }
 
 func getInitials(n string) (string, string){

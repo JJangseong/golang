@@ -203,16 +203,32 @@ func main() {
 	//fmt.Println(phonebook)
 
 	// Pass By Value
+	//name := "tifa"
+	//
+	//name = updateName(name)
+	//fmt.Println(name)
+	//
+	//menu := map[string]float64 {
+	//	"pie": 5.6,
+	//}
+	//updateMenu(menu)
+	//fmt.Println(menu)
+
+	// Pointers
 	name := "tifa"
 
-	name = updateName(name)
-	fmt.Println(name)
+	updateName(name)
+	fmt.Println("memory address of name is : ", &name)
+	m := &name
+	fmt.Println("memory address:", &m)
+	fmt.Println("Value at memory address:",*m)
 
-	menu := map[string]float64 {
-		"pie": 5.6,
-	}
-	updateMenu(menu)
-	fmt.Println(menu)
+	updateNameByPointer(m)
+	fmt.Println(name)
+}
+
+func updateNameByPointer(x *string) {
+	*x = "wedge"
 }
 
 func updateName(x string) string {

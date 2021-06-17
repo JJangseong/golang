@@ -215,16 +215,22 @@ func main() {
 	//fmt.Println(menu)
 
 	// Pointers
-	name := "tifa"
+	//name := "tifa"
+	//
+	//updateName(name)
+	//fmt.Println("memory address of name is : ", &name)
+	//m := &name
+	//fmt.Println("memory address:", &m)
+	//fmt.Println("Value at memory address:",*m)
+	//
+	//updateNameByPointer(m)
+	//fmt.Println(name)
 
-	updateName(name)
-	fmt.Println("memory address of name is : ", &name)
-	m := &name
-	fmt.Println("memory address:", &m)
-	fmt.Println("Value at memory address:",*m)
+	// Structs & Custom Types
+	mybill := newBill("mario's bill")
 
-	updateNameByPointer(m)
-	fmt.Println(name)
+	fmt.Println(mybill)
+
 }
 
 func updateNameByPointer(x *string) {

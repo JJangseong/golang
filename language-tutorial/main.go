@@ -227,9 +227,14 @@ func main() {
 	//fmt.Println(name)
 
 	// Structs & Custom Types
-	mybill := newBill("mario's bill")
+	//mybill := newBill("mario's bill")
+	//
+	//fmt.Println(mybill)
 
-	fmt.Println(mybill)
+	// Receiver Functions
+	mybill := newBill("mario's ")
+
+	fmt.Println(mybill.format())
 
 }
 

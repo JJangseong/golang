@@ -232,7 +232,17 @@ func main() {
 	//fmt.Println(mybill)
 
 	// Receiver Functions
-	mybill := newBill("mario's ")
+	//mybill := newBill("mario's ")
+	//
+	//fmt.Println(mybill.format())
+
+	// Receiver Functions with Pointers
+	mybill := newBill("mario's bill")
+
+	mybill.updateTip(10)
+	mybill.addItem("onion soup", 4.5)
+	mybill.addItem("veg pie", 3.8)
+	mybill.addItem("toffee pudding", 2.0)
 
 	fmt.Println(mybill.format())
 

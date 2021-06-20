@@ -1,8 +1,10 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"math"
+	"os"
 	"strings"
 )
 
@@ -237,15 +239,51 @@ func main() {
 	//fmt.Println(mybill.format())
 
 	// Receiver Functions with Pointers
-	mybill := newBill("mario's bill")
+	//mybill := newBill("mario's bill")
+	//
+	//mybill.updateTip(10)
+	//mybill.addItem("onion soup", 4.5)
+	//mybill.addItem("veg pie", 3.8)
+	//mybill.addItem("toffee pudding", 2.0)
+	//
+	//fmt.Println(mybill.format())
 
-	mybill.updateTip(10)
+	// User Input
+	mybill := createBill()
+	promptOptions(mybill)
+
 	mybill.addItem("onion soup", 4.5)
 	mybill.addItem("veg pie", 3.8)
 	mybill.addItem("toffee pudding", 2.0)
 
+	mybill.updateTip(10)
+
 	fmt.Println(mybill.format())
 
+}
+
+func getInput(prompt string, r *bufio.Reader) (string, error){
+	fmt.Print(prompt)
+	input, err := r.ReadString('\n')
+
+	return strings.TrimSpace(input), err
+}
+
+func createBill() bill{
+	reader := bufio.NewReader(os.Stdin)
+	name, _ := getInput("Create a new bill name: ", reader)
+
+	b := newBill(name)
+	fmt.Println("Created the bill - ", b.name)
+
+	return b
+}
+
+func promptOptions(b bill) {
+	reader := bufio.NewReader(os.Stdin)
+
+	opt, _ := getInput("Choose option (a - add item, s - save bill, t - add tip", reader)
+	fmt.Println(opt)
 }
 
 func updateNameByPointer(x *string) {

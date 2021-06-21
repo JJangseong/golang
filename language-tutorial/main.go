@@ -249,16 +249,23 @@ func main() {
 	//fmt.Println(mybill.format())
 
 	// User Input
+	//mybill := createBill()
+	//promptOptions(mybill)
+	//
+	//mybill.addItem("onion soup", 4.5)
+	//mybill.addItem("veg pie", 3.8)
+	//mybill.addItem("toffee pudding", 2.0)
+	//
+	//mybill.updateTip(10)
+	//
+	//fmt.Println(mybill.format())
+
+	// Switch Statements
 	mybill := createBill()
 	promptOptions(mybill)
 
-	mybill.addItem("onion soup", 4.5)
-	mybill.addItem("veg pie", 3.8)
-	mybill.addItem("toffee pudding", 2.0)
-
-	mybill.updateTip(10)
-
 	fmt.Println(mybill.format())
+
 
 }
 
@@ -282,8 +289,25 @@ func createBill() bill{
 func promptOptions(b bill) {
 	reader := bufio.NewReader(os.Stdin)
 
-	opt, _ := getInput("Choose option (a - add item, s - save bill, t - add tip", reader)
-	fmt.Println(opt)
+	opt, _ := getInput("Choose option (a - add item, s - save bill, t - add tip): ", reader)
+
+	switch opt {
+	case "a":
+		name, _ := getInput("Item name: ", reader)
+		price, _ := getInput("Item price: ", reader)
+		b.addItem(name, price)
+		fmt.Println(name, price)
+	case "t":
+		tip, _ := getInput("Enter tip amount ($): ", reader)
+		b.updateTip(tip)
+		fmt.Println(tip)
+	case "s":
+		fmt.Println("you chose s")
+	default:
+		fmt.Println("that was not a valid option...")
+		promptOptions(b)
+
+	}
 }
 
 func updateNameByPointer(x *string) {

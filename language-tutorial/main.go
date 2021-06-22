@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"math"
 	"os"
+	"strconv"
 	"strings"
 )
 
@@ -295,14 +296,28 @@ func promptOptions(b bill) {
 	case "a":
 		name, _ := getInput("Item name: ", reader)
 		price, _ := getInput("Item price: ", reader)
-		b.addItem(name, price)
-		fmt.Println(name, price)
+
+		p, err := strconv.ParseFloat(price, 64)
+		if err != nil {
+			fmt.Println("The price must be a number")
+			promptOptions(b)
+		}
+
+		b.addItem(name, p)
+		promptOptions(b)
 	case "t":
 		tip, _ := getInput("Enter tip amount ($): ", reader)
-		b.updateTip(tip)
-		fmt.Println(tip)
+
+		t, err := strconv.ParseFloat(tip, 64)
+		if err != nil {
+			fmt.Println("The tip must be a number")
+			promptOptions(b)
+		}
+
+		b.updateTip(t)
+		promptOptions(b)
 	case "s":
-		fmt.Println("you chose s")
+		fmt.Println("you chose to save the bill", b)
 	default:
 		fmt.Println("that was not a valid option...")
 		promptOptions(b)

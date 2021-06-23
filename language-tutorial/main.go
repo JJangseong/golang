@@ -317,7 +317,8 @@ func promptOptions(b bill) {
 		b.updateTip(t)
 		promptOptions(b)
 	case "s":
-		fmt.Println("you chose to save the bill", b)
+		b.save()
+		fmt.Println("you saved the file - ", b.name)
 	default:
 		fmt.Println("that was not a valid option...")
 		promptOptions(b)
